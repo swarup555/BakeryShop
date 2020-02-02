@@ -95,17 +95,19 @@ namespace BakeryBusiness
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Input");
                     Console.ResetColor();
-                    Console.WriteLine(result.itemcode + ":\t" + result.quantity.ToString());
+                    Console.WriteLine(result.itemcode + " " + result.quantity.ToString());
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Output");
-                    Console.WriteLine("Item Code ########## Packs #################### Price");
+                    Console.WriteLine("Item Code ############# Packs ################# Price");
                     Console.ResetColor();
-                    foreach (var item in result.Sales)
+                    var sales= result.Sales.Where(a=>a.itemcode==itemcode).GroupBy(a => a.quantity)
+                              .Select(g => new { g.Key, TotalSales = g.Sum(pv => pv.price), Count = g.Count() });
+                    foreach (var item in sales)
                     {
-                        Console.WriteLine(item.itemcode + "\t\t\t" + item.quantity.ToString() + " \t\t\t" + item.price.ToString());
+                        Console.WriteLine(itemcode + "\t\t\t" + item.Count.ToString() + " X "+ item.Key.ToString()+" \t\t\t" +"$"+item.TotalSales.ToString());
                     }
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Total amount \t\t\t\t\t" + result.totalprice.ToString());
+                    Console.WriteLine("Total amount \t\t\t\t\t" +"$"+result.totalprice.ToString());
                     Console.ResetColor();
                 }
             }

@@ -50,7 +50,7 @@ namespace BakeryDataAccess
             itemstockobj = new ItemStocck();
             itemstockobj.itemcode = "CF";
             itemstockobj.packs = 9;
-            itemstockobj.price = 16.95;
+            itemstockobj.price = 16.99;
             itemstocklistobj.Add(itemstockobj);
             return itemstocklistobj;
         }

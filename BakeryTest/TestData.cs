@@ -72,7 +72,7 @@ namespace BakeryTest
             testcase4.quantity = 19;
             objtestdata.Add(testcase4);
             objtestcaselist.Add(objtestdata);
-            //-------------test case: 4 ------------------
+            //-------------test case: 5 ------------------
             objtestdata = new List<Inputs>();
             Inputs testcase5 = new Inputs();
             testcase5.itemcode = "VS5";
@@ -87,7 +87,39 @@ namespace BakeryTest
             testcase5.quantity = 59;
             objtestdata.Add(testcase5);
             objtestcaselist.Add(objtestdata);
+           
+            //-------------test case: 6 ------------------
+            objtestdata = new List<Inputs>();
+            Inputs testcase6 = new Inputs();
+            testcase6.itemcode = "VS5";
+            testcase6.quantity = 45;
+            objtestdata.Add(testcase6);
+            testcase6 = new Inputs();
+            testcase6.itemcode = "MB11";
+            testcase6.quantity = 38;
+            objtestdata.Add(testcase6);
+            testcase6 = new Inputs();
+            testcase6.itemcode = "CF";
+            testcase6.quantity = 7;
+            objtestdata.Add(testcase6);
+            objtestcaselist.Add(objtestdata);
+            //-------------test case: 7 ------------------
+            objtestdata = new List<Inputs>();
+            Inputs testcase7 = new Inputs();
+            testcase7.itemcode = "VS5";
+            testcase7.quantity = 154;
+            objtestdata.Add(testcase7);
+            testcase7 = new Inputs();
+            testcase7.itemcode = "MB11";
+            testcase7.quantity = 3;
+            objtestdata.Add(testcase7);
+            testcase7 = new Inputs();
+            testcase7.itemcode = "CF";
+            testcase7.quantity = 50;
+            objtestdata.Add(testcase7);
+            objtestcaselist.Add(objtestdata);
             return objtestcaselist;
+
         }
     }
     
