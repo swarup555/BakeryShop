@@ -34,7 +34,7 @@ namespace BakeryBusiness
                     Console.WriteLine("Product does not exists in stock");
                     Console.ResetColor();
                 }
-                List<List<int>> res = ProductBusiness.combinationSum(availablepacks, noofitems);
+                List<List<int>> res = ProductBusiness.CombinationSum(availablepacks, noofitems);
                 if (res.Count == 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;

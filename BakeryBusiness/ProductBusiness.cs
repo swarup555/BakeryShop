@@ -8,7 +8,7 @@ namespace BakeryBusiness
 {
     class ProductBusiness
     {
-        private static void findNumbers(List<int> ar, int sum, List<List<int>> res, List<int> r, int i)
+        private static void FindNumbers(List<int> ar, int sum, List<List<int>> res, List<int> r, int i)
         {
             try
             {
@@ -31,7 +31,7 @@ namespace BakeryBusiness
                 while (i < ar.Count && sum - ar[i] >= 0)
                 {
                     r.Add(ar[i]);
-                    findNumbers(ar, sum - ar[i], res, r, i);
+                    FindNumbers(ar, sum - ar[i], res, r, i);
                     i++;
                     r.RemoveAt(r.Count - 1);
                 }
@@ -43,12 +43,12 @@ namespace BakeryBusiness
                 Console.ResetColor();
             }
         }
-        public static List<List<int>> combinationSum(List<int> ar, int sum)
+        public static List<List<int>> CombinationSum(List<int> ar, int sum)
         {
             ar.Sort();
             List<int> r = new List<int>();
             List<List<int>> res = new List<List<int>>();
-            findNumbers(ar, sum, res, r, 0);
+            FindNumbers(ar, sum, res, r, 0);
             return new List<List<int>>(res);
         }
     }
