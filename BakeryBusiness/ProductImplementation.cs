@@ -33,9 +33,10 @@ namespace BakeryBusiness
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Product does not exists in stock");
                     Console.ResetColor();
+                    return;
                 }
                 List<List<int>> res = ProductBusiness.CombinationSum(availablepacks, noofitems);
-                if (res.Count == 0)
+                if (res.Count == 0||noofitems == 0)
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("Input");
@@ -47,6 +48,7 @@ namespace BakeryBusiness
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"Items with { noofitems} packs can not be added for the item code:- {itemcode}");
                     Console.ResetColor();
+                    return;
                 }
                 else
                 {
