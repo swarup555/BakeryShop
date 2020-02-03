@@ -22,7 +22,7 @@ namespace BakeryTest
             {
                 Console.ForegroundColor= ConsoleColor.Yellow;
                 Console.WriteLine("##########################################################");
-                Console.WriteLine($"Test cas:- {testcaseno}");
+                Console.WriteLine($"Test case:- {testcaseno}");
                 Console.WriteLine("########################################################## \n");
                 Console.ResetColor();
                 foreach (var item in testcase)
