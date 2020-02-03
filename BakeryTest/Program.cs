@@ -23,7 +23,18 @@ namespace BakeryTest
                 Console.ForegroundColor= ConsoleColor.Yellow;
                 Console.WriteLine("##########################################################");
                 Console.WriteLine($"Test case:- {testcaseno}");
+                Console.WriteLine("Input");
+                foreach (var result in testcase)
+                {
+                    Console.WriteLine(result.itemcode + " " + result.quantity.ToString());
+                }
                 Console.WriteLine("########################################################## \n");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Output \n");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Item Code ############# Packs ######################### Price");
                 Console.ResetColor();
                 foreach (var item in testcase)
                 {

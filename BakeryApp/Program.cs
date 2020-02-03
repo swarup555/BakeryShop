@@ -42,6 +42,21 @@ namespace BakeryApp
                     Console.WriteLine("Do you want to add more item (Y/N)? ");
                 }
                 while (Console.ReadLine() != "N");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("##########################################################");
+                Console.WriteLine("Input");
+                foreach (var result in inputobj)
+                {
+                    Console.WriteLine(result.itemcode + " " + result.quantity.ToString());
+                }
+                Console.WriteLine("########################################################## \n");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Output \n");
+                Console.ResetColor();
+                Console.ForegroundColor = ConsoleColor.Blue;
+                Console.WriteLine("Item Code ############# Packs ######################### Price");
+                Console.ResetColor();
                 foreach (var item in inputobj)
                 {
                     _product.CalculateMinimumShippingSpace(item);

@@ -23,12 +23,8 @@ namespace BakeryBusiness
                 var availablepacks = itemstock.Where(x => x.itemcode == itemcode).Select(x => x.packs).ToList();
                 if (availablepacks.Count == 0)
                 {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Input");
-                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine(itemcode + ":\t" + noofitems.ToString());
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Output");
                     Console.ResetColor();
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Product does not exists in stock");
@@ -38,12 +34,8 @@ namespace BakeryBusiness
                 List<List<int>> res = ProductBusiness.CombinationSum(availablepacks, noofitems);
                 if (res.Count == 0||noofitems == 0)
                 {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Input");
-                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine(itemcode + ":\t" + noofitems.ToString());
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Output");
                     Console.ResetColor();
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine($"Items with { noofitems} packs can not be added for the item code:- {itemcode}");
@@ -94,22 +86,17 @@ namespace BakeryBusiness
                 }
                 foreach (var result in outputobj)
                 {
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Input");
-                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine(result.itemcode + " " + result.quantity.ToString());
-                    Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Output");
-                    Console.WriteLine("Item Code ############# Packs ######################### Price");
                     Console.ResetColor();
-                    var sales= result.Sales.Where(a=>a.itemcode==itemcode).GroupBy(a => a.quantity)
-                              .Select(g => new { g.Key, TotalSales = g.Sum(pv => pv.price),price=g.Select(x=>x.price).First(), Count = g.Count() });
+                    var sales = result.Sales.Where(a => a.itemcode == itemcode).GroupBy(a => a.quantity)
+                              .Select(g => new { g.Key, TotalSales = g.Sum(pv => pv.price), price = g.Select(x => x.price).First(), Count = g.Count() });
                     foreach (var item in sales)
                     {
-                        Console.WriteLine(itemcode + "\t\t\t" + item.Count.ToString() + " X "+ item.Key.ToString()+"($"+ item.price+ ")"+"\t\t\t" +"$"+item.TotalSales.ToString());
+                        Console.WriteLine(itemcode + "\t\t\t" + item.Count.ToString() + " X " + item.Key.ToString() + "($" + item.price + ")" + "\t\t\t" + "$" + item.TotalSales.ToString());
                     }
                     Console.ForegroundColor = ConsoleColor.Blue;
-                    Console.WriteLine("Total amount \t\t\t\t\t\t" +"$"+result.totalprice.ToString());
+                    Console.WriteLine("Total amount \t\t\t\t\t\t" + "$" + result.totalprice.ToString());
                     Console.ResetColor();
                 }
             }
